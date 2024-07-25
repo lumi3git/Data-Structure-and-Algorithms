@@ -1,19 +1,33 @@
 def insertionSort(arr):
-    n = len(arr) #calculates length of the array
+    n = len(arr)  # calculates the length of the array
 
     if n <= 1:
-        return #if the array has 0 or 1 element, its already sorted
+        return  # if the array has 0 or 1 element, it's already sorted
 
-    for i in range(1,n):
+    for i in range(1, n):
         key = arr[i]
-        j= i-1
-        
-        while j >=0 and key > arr[j]:
-            arr[j+1] = arr[j]
-            j -= 1
-        arr [j+1] = key
+        j = i - 1
+        print(f"Inserting {key} into the sorted portion of the array")
 
-arr= [44,22,11,55,99,66,88]
+        
+        print("Before insertion:", arr[:i], "|", arr[i:]) # Print the array state before insertion
+
+        while j >= 0 and key > arr[j]:  # Inner Loop for Shifting Elements
+            arr[j + 1] = arr[j]
+            j -= 1
+
+        arr[j + 1] = key
+        
+        print("After insertion: ", arr[:i+1], "|", arr[i+1:]) # Print the array state after insertion
+        print()  # Blank line for readability
+
+
+#In here, 78 is the already sorted array, we're going to insert 75, 63, 26, 9, 4 respectively
+arr = [78, 75, 63, 26, 9, 4]
+
+print("Sorted Array:", arr)
+print()
 
 insertionSort(arr)
-print(arr)
+
+print("Sorted Array after the insertion of new elements from 75:", arr)
